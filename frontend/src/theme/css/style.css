@@ -11,12 +11,15 @@ textarea:focus,input:focus,select:focus,button:focus{
 html,body{
     font-family: "Esqadero FF CY 4F-Regular", sans-serif !important;
 }
-ion-content.with_theme_gradiant_background {
-    --background: #1b3248!important;
-    /*background: linear-gradient(-45deg, #006d9f, #003c57, #002d42, #004c6f);*/
-    /*background: linear-gradient(-45deg, #006d9f, #003c57, #002d42, #004c6f);*/
-    /*background-size: 400% 400%;*/
-    /*animation: gradient 5s ease infinite;*/
+.display_flex{
+    --display: flex;
+    display: flex;
+}
+body{
+    --background: #000000!important;
+}
+ion-content{
+    --background: unset!important;
 }
 
 @keyframes gradient {
@@ -37,44 +40,50 @@ ion-content.with_theme_gradiant_background {
     display: flex;
 }
 
-.main_welcome_header_logo_section img {
+.main_welcome_header_logo_section img.logo {
     margin: auto;
-    width: 120px;
-    margin-top: 65px;
+    width: 100px;
 }
 
-.main_logo_and_slogan_container_header .logo_slogan_container {
-    margin-top: 53px;
-    display: flex;
+.welcome_main_container_inner {
+    margin-top: 20%;
 }
-
-.main_logo_and_slogan_container_header .logo_slogan_container img {
-    width: 270px;
+.login_main_container_outer {
+    height: 100%;
+    margin-top: 15%;
+}
+.login_main_container_inner {
+    margin: auto;
+}
+.signup_main_container_outer {
+    height: 100%;
+    margin-top: 15%;
+}
+.signup_main_container_inner {
     margin: auto;
 }
 .main_button_container_section {
     text-align: center;
-    color: #e7e8e9;
-    margin-top: 50px;
+    color: var(--theme-text-color);
 }
 
 .main_button_container_section p {
-    font-size: 14px;
+    font-size: var(--theme-text-small-size);
 }
 
 .main_button_container_section button {
     border-radius: 2px;
-    width: 175px;
+    width: 280px;
     height: 45px;
-    margin-top: 10px;
-    margin-bottom: 12px;
-    font-size: 18px;
+    margin-top: 20px;
+    margin-bottom: 15px;
+    font-size: var(--theme-text-sub-heading-size);
 }
 .glossy-button {
     background-color: rgba(255,255,255,0.1);
     border: 1px solid rgba(255,255,255,0.1);
     backdrop-filter: blur(30px);
-    color: #ffffff;
+    color: var(--theme-text-color);;
     cursor: pointer;
 }
 
@@ -88,52 +97,82 @@ ion-content.with_theme_gradiant_background {
     background-color: rgba(255,255,255,0.1);
     border: 1px solid rgba(255,255,255,0.1);
     backdrop-filter: blur(30px);
-    color: #ffffff;
+    color: var(--theme-text-color);;
     height: 45px;
-    font-size: 14px;
+    font-size: var(--theme-text-main-size);
+    width: 100%;
     margin-top: 10px;
 }
 .all_rights_reserve_footer_text {
     position: absolute;
     bottom: 5px;
     text-align: center;
-    font-size: 9px;
-    color: #b0b7bf;
+    font-size: var(--theme-text-very-small-size);
+    color: var(--theme-text-color-second);
     margin: 8px;
+    width: 100%;
+    left: 0px;
     line-height: 16px;
 }
 .welcome_slogan_container {
-    margin-top: 8px;
     color: #fff;
-    font-size: 24px;
+    font-size: var(--theme-text-sub-heading-size);
     text-align: center;
     line-height: 30px;
+    margin-top: 30px;
 }
 .welcome_slogan_container p{
-    color: #fff;
-    font-size: 16px;
+    color: var(--theme-text-color);;
+    font-size: var(--theme-text-sub-heading-size);
 }
 .main_form_container_section {
     text-align: center;
-    margin: 0px 25px 0px 25px;
+    margin: 0px 10px 0px 10px;
 }
 
 .main_form_container_section .signup_button_main_form {
-    font-size: 16px;
-    background-color: rgba(255,255,255,0.1);
-    border: 1px solid rgba(255,255,255,0.1);
-    backdrop-filter: blur(30px);
-    width: 180px;
+    font-size: var(--theme-text-main-size);
+    background-color: var(--theme-primary-button-color);
+    width: 100%;
     height: 50px;
-    color: #fff;
+    color: var(--theme-text-color);;
     margin-top: 10px;
 }
 .main_form_container_section p {
-    color: #fff;
-    font-size: 15px;
+    color: var(--theme-text-color);
+    font-size: var(--theme-text-main-size);
 }
 
 .main_form_container_section a {
-    color: #ff3200;
+    color: var(--theme-logo-color);
     font-weight: 600;
+    font-size: var(--theme-text-small-size);
+}
+.logo_section_welcome_top {
+    display: flex;
+    width: 100%;
+    margin-top: 20px;
+}
+
+.logo_section_welcome_top img {
+    margin: auto;
+}
+.welcome_page_swiper_slider .swiper-pagination {
+    position: static;
+    margin-top: 24px;
+}
+
+.swiper-horizontal.welcome_page_swiper_slider > .swiper-pagination-bullets .swiper-pagination-bullet, .swiper-pagination-horizontal.swiper-pagination-bullets .swiper-pagination-bullet-active {
+    background: var(--theme-logo-color) !important;
+    border: 0;
+}
+.swiper-horizontal.welcome_page_swiper_slider > .swiper-pagination-bullets .swiper-pagination-bullet, .swiper-pagination-horizontal.swiper-pagination-bullets .swiper-pagination-bullet-active {
+    background: var(--theme-logo-color) !important;
+}
+.main_button_container_section a {
+    color: var(--theme-logo-color);
+    font-weight: bold;
+}
+.welcome_page_swiper_slider img {
+    margin: auto;
 }

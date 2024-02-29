@@ -13,8 +13,8 @@ export default function PrivateRoutes(){
 
     useEffect(()=>{
         if(Capacitor.isNativePlatform()){
-            NavigationBar.setColor({ color: '#1b3248' , darkButtons:false});
-            StatusBar.setBackgroundColor({ color: '#1b3248' });
+            NavigationBar.setColor({ color: '#000000' , darkButtons:false});
+            StatusBar.setBackgroundColor({ color: '#000000' });
             StatusBar.setStyle({ style:Style.Dark });
         }
     },[])

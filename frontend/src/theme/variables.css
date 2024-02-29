@@ -6,6 +6,16 @@ http://ionicframework.com/docs/theming/ */
   /** primary **/
   --ion-default-font:"Esqadero FF CY 4F-Regular", sans-serif !important;
   --ion-color-primary: #3880ff;
+  --theme-background-color: #000000;
+  --theme-logo-color: #E70000;
+  --theme-primary-button-color: #8b0000;
+  --theme-text-color: #ffffff;
+  --theme-text-color-second: #b0b7bf;
+  --theme-text-heading-size: 22px;
+  --theme-text-sub-heading-size: 20px;
+  --theme-text-main-size: 16px;
+  --theme-text-small-size: 14px;
+  --theme-text-very-small-size: 12px;
   --ion-color-primary-rgb: 56, 128, 255;
   --ion-color-primary-contrast: #ffffff;
   --ion-color-primary-contrast-rgb: 255, 255, 255;
