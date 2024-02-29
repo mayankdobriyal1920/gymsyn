@@ -1,0 +1,139 @@
+@font-face {
+    font-family: 'Esqadero FF CY 4F-Regular';
+    font-style: normal;
+    font-weight: 400;
+    src: url('../fonts/esqadero-ff-cy-4f-regular.ttf') format('truetype');
+}
+textarea:focus,input:focus,select:focus,button:focus{
+    outline: none!important;
+}
+
+html,body{
+    font-family: "Esqadero FF CY 4F-Regular", sans-serif !important;
+}
+ion-content.with_theme_gradiant_background {
+    --background: #1b3248!important;
+    /*background: linear-gradient(-45deg, #006d9f, #003c57, #002d42, #004c6f);*/
+    /*background: linear-gradient(-45deg, #006d9f, #003c57, #002d42, #004c6f);*/
+    /*background-size: 400% 400%;*/
+    /*animation: gradient 5s ease infinite;*/
+}
+
+@keyframes gradient {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+.main_welcome_header_logo_section {
+    display: flex;
+}
+
+.main_welcome_header_logo_section img {
+    margin: auto;
+    width: 120px;
+    margin-top: 65px;
+}
+
+.main_logo_and_slogan_container_header .logo_slogan_container {
+    margin-top: 53px;
+    display: flex;
+}
+
+.main_logo_and_slogan_container_header .logo_slogan_container img {
+    width: 270px;
+    margin: auto;
+}
+.main_button_container_section {
+    text-align: center;
+    color: #e7e8e9;
+    margin-top: 50px;
+}
+
+.main_button_container_section p {
+    font-size: 14px;
+}
+
+.main_button_container_section button {
+    border-radius: 2px;
+    width: 175px;
+    height: 45px;
+    margin-top: 10px;
+    margin-bottom: 12px;
+    font-size: 18px;
+}
+.glossy-button {
+    background-color: rgba(255,255,255,0.1);
+    border: 1px solid rgba(255,255,255,0.1);
+    backdrop-filter: blur(30px);
+    color: #ffffff;
+    cursor: pointer;
+}
+
+.main_form_container_section .form_input_section.input {
+    width: 100%;
+    padding-left: 10px;
+}
+.main_form_container_section .form_input_section {
+    border-radius: 2px;
+    padding-left: 10px;
+    background-color: rgba(255,255,255,0.1);
+    border: 1px solid rgba(255,255,255,0.1);
+    backdrop-filter: blur(30px);
+    color: #ffffff;
+    height: 45px;
+    font-size: 14px;
+    margin-top: 10px;
+}
+.all_rights_reserve_footer_text {
+    position: absolute;
+    bottom: 5px;
+    text-align: center;
+    font-size: 9px;
+    color: #b0b7bf;
+    margin: 8px;
+    line-height: 16px;
+}
+.welcome_slogan_container {
+    margin-top: 8px;
+    color: #fff;
+    font-size: 24px;
+    text-align: center;
+    line-height: 30px;
+}
+.welcome_slogan_container p{
+    color: #fff;
+    font-size: 16px;
+}
+.main_form_container_section {
+    text-align: center;
+    margin: 0px 25px 0px 25px;
+}
+
+.main_form_container_section .signup_button_main_form {
+    font-size: 16px;
+    background-color: rgba(255,255,255,0.1);
+    border: 1px solid rgba(255,255,255,0.1);
+    backdrop-filter: blur(30px);
+    width: 180px;
+    height: 50px;
+    color: #fff;
+    margin-top: 10px;
+}
+.main_form_container_section p {
+    color: #fff;
+    font-size: 15px;
+}
+
+.main_form_container_section a {
+    color: #ff3200;
+    font-weight: 600;
+}
