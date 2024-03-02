@@ -1,12 +1,14 @@
 import React, {useEffect} from 'react';
-import {Redirect, Route} from "react-router-dom";
+import {Redirect, Route, Switch} from "react-router-dom";
 // import {useDispatch} from "react-redux";
 // import {getWebsocketConnectedMessage} from "../actions/helpers/WebSocketHelper";
 // import {w3cwebsocket as W3CWebSocket} from "websocket";
-import WelcomePage from "../pages/WelcomePage";
 import {Capacitor} from "@capacitor/core";
 import {NavigationBar} from "@mauricewegner/capacitor-navigation-bar";
 import {StatusBar, Style} from "@capacitor/status-bar";
+import MainAppEntryComponent from "../components/MainAppEntryComponent";
+import {IonReactRouter} from "@ionic/react-router";
+import {IonRouterOutlet} from "@ionic/react";
 
 // let loadOnce = false;
 export default function PrivateRoutes(){
@@ -27,11 +29,14 @@ export default function PrivateRoutes(){
     //     }
     // },[])
     return (
-        <React.Fragment>
-            <Route exact path={"/welcome"} component={WelcomePage}/>
-            <Route exact path={"/login"} component={WelcomePage}/>
-            <Route exact path={"/signup"} component={WelcomePage}/>
-            <Route path={"*"} render={()=><Redirect to={"/welcome"}/>}/>
-        </React.Fragment>
+        <IonReactRouter>
+            <IonRouterOutlet>
+                <Switch>
+                    <Route path={"/dashboard"} component={MainAppEntryComponent}/>
+                    <Redirect from="/" to="/dashboard" />
+                    <Route render={()=><Redirect to={"/dashboard"}/>}/>
+                </Switch>
+            </IonRouterOutlet>
+        </IonReactRouter>
     )
 }

@@ -1,5 +1,5 @@
 import React from 'react';
-import { IonApp, setupIonicReact } from '@ionic/react';
+import {IonApp, IonRouterOutlet, setupIonicReact} from '@ionic/react';
 import { IonReactRouter } from '@ionic/react-router';
 
 /* Core CSS required for Ionic components to work properly */
@@ -23,15 +23,17 @@ import './theme/variables.css';
 import {isLogin} from "./middlewear/auth";
 import PublicRoutes from "./routing/PublicRoutes";
 import PrivateRoutes from "./routing/PrivateRoutes";
+import {useSelector} from "react-redux";
 
 setupIonicReact();
 
-const App: React.FC = () => (
-  <IonApp>
-    <IonReactRouter>
-      {(isLogin()) ? <PrivateRoutes/> : <PublicRoutes/>}
-    </IonReactRouter>
-  </IonApp>
-);
+const App = () => {
+    const {userInfo} = useSelector((state)=>state.userSignIn);
+    return (
+        <IonApp>
+            {(userInfo?.id) ? <PrivateRoutes/> : <PublicRoutes/>}
+        </IonApp>
+    );
+}
 
 export default App;

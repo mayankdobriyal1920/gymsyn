@@ -18,6 +18,7 @@ const userSlice = createSlice({
     },
     userSignInSuccess: (state, action) => {
       // Update userInfo when user signs in
+      console.log('action.payload',action.payload)
       state.userInfo = action.payload;
     },
     userSignInFail: (state) => {

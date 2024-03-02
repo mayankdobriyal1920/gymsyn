@@ -1,11 +1,32 @@
 // import Axios from 'axios';
 import {handleWebSocketEvent} from "./helpers/WebSocketHelper";
+import {userSignInSuccess} from "../store/reducers/user.slice";
 
 // const api = Axios.create({
 //   baseURL: `https://letscall.co.in/api/`
 // })
 
 
+export const actionToValidateOtpAndLoginUser = () => async (dispatch) => {
+  let data = {
+    id:'324-ewr-2345-223r-245',
+    name:'Mayank Dobriyal',
+    is_owner:1,
+    gym_data:null
+  }
+  localStorage.setItem('userInfo',JSON.stringify(data));
+  dispatch(userSignInSuccess({...data}));
+}
+export const actionToAddNewUserGymDetailData = () => async (dispatch) => {
+  let data = {
+    id:'324-ewr-2345-223r-245',
+    name:'Mayank Dobriyal',
+    is_owner:1,
+    gym_data:{id:"dfdfregt-123213-egrg-4535",name:"Power gym",address:"New Delhi India"}
+  }
+  localStorage.setItem('userInfo',JSON.stringify(data));
+  dispatch(userSignInSuccess({...data}));
+}
 export const handleWebSocketEventCall = (data) => async (dispatch,getState) => {
   handleWebSocketEvent(dispatch,getState(),data);
 }

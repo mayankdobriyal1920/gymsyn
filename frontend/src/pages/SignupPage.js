@@ -1,5 +1,5 @@
 import React,{useState,useEffect} from 'react';
-import {IonCol, IonContent, IonRow} from "@ionic/react";
+import {IonCol, IonContent, IonPage, IonRow} from "@ionic/react";
 import logoWithoutText from "../theme/images/logo-icon-dark-100.png";
 import {countries as countriesList} from 'countries-list';
 import {useHistory} from "react-router-dom";
@@ -33,7 +33,8 @@ export default function SignupPage(){
     };
 
     return (
-        <IonContent>
+        <IonPage>
+           <IonContent className={"top_padding"}>
             <div className={"signup_main_container_outer"}>
                 <div className={"signup_main_container_inner"}>
                     {/*///////////// LOGO SLOGAN CONTAINER /////////////////////*/}
@@ -59,7 +60,7 @@ export default function SignupPage(){
                                 </select>
                             </IonCol>
                             <IonCol size={9}>
-                                <input className={"form_input_section input"} placeholder={"Mobile Number"} type={"phone"}/>
+                                <input className={"form_input_section input"} placeholder={"Mobile Number"} type={"text"}/>
                             </IonCol>
                         </IonRow>
                         <IonRow>
@@ -95,5 +96,6 @@ export default function SignupPage(){
                 </div>
             </div>
         </IonContent>
+        </IonPage>
     )
 }

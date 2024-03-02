@@ -1,11 +1,27 @@
 import React,{useState,useEffect} from 'react';
-import {IonCol, IonContent, IonRow} from "@ionic/react";
+import {
+    IonActionSheet,
+    IonCardTitle,
+    IonCol,
+    IonContent,
+    IonFooter,
+    IonHeader,
+    IonModal,
+    IonPage,
+    IonRow
+} from "@ionic/react";
 import logoWithoutText from "../theme/images/logo-icon-dark-100.png";
 import {countries as countriesList} from 'countries-list';
 import {useHistory} from "react-router-dom";
+import OTPInput from "react-otp-input";
+import {useDispatch} from "react-redux";
+import {actionToValidateOtpAndLoginUser} from "../actions/CommonAction";
 
 export default function LoginPage(){
     const history = useHistory();
+    const [isValidateOtpModalOpen,setIsValidateOtpModalOpen] = useState(false);
+    const [otp,setOtp] = useState('');
+    const [phone,setPhone] = useState('');
     const goToPage = (page) =>{
         history.replace(page);
     }
@@ -17,6 +33,17 @@ export default function LoginPage(){
             name: "India"
         }
     );
+    const dispatch = useDispatch();
+
+    const callFunctionToValidateOtpAndLoginUser = (otp)=>{
+        dispatch(actionToValidateOtpAndLoginUser())
+    }
+    const callFunctionToLoginUser = ()=>{
+        if(phone?.length === 10) {
+            setIsValidateOtpModalOpen(true);
+        }
+    }
+
     useEffect(() => {
         // Convert the countries object into an array
         const countriesArray = Object.entries(countriesList).map(([code, details]) => ({
@@ -28,12 +55,18 @@ export default function LoginPage(){
         setCountries(countriesArray);
     }, []);
 
+    const onChangePhoneNumber = (value) => {
+        if(phone?.length < 10 && !isNaN(value)) {
+            setPhone(value);
+        }
+    }
     const handleCountryChange = (event) => {
         setSelectedCountry(event.target.value);
     };
 
     return (
-        <IonContent className={"display_flex"}>
+        <IonPage>
+           <IonContent className={"top_padding"}>
             <div className={"login_main_container_outer"}>
                 <div className={"login_main_container_inner"}>
                     {/*///////////// LOGO SLOGAN CONTAINER /////////////////////*/}
@@ -59,17 +92,15 @@ export default function LoginPage(){
                                 </select>
                             </IonCol>
                             <IonCol size={9}>
-                                <input className={"form_input_section input"} placeholder={"Mobile Number"} type={"phone"}/>
+                                <input className={"form_input_section input"}
+                                       onChange={(e)=>onChangePhoneNumber(e.target.value)}
+                                       value={phone}
+                                       placeholder={"Mobile Number"} type={"text"}/>
                             </IonCol>
                         </IonRow>
                         <IonRow>
                             <IonCol>
-                                <input className={"form_input_section input"} placeholder={"Full Name"} type={"phone"}/>
-                            </IonCol>
-                        </IonRow>
-                        <IonRow>
-                            <IonCol>
-                                <button className={"signup_button_main_form"}>
+                                <button onClick={callFunctionToLoginUser} disabled={phone?.length !== 10} className={"signup_button_main_form"}>
                                     Login
                                 </button>
                             </IonCol>
@@ -82,6 +113,45 @@ export default function LoginPage(){
                     </div>
                 </div>
             </div>
+
+
+            {/*/////////////// OTP VALIDATION SHEET MODAL //////////////*/}
+            <IonModal
+                isOpen={isValidateOtpModalOpen}
+                breakpoints={[0.4]}
+                initialBreakpoint={0.4}
+                className={"sheet_ion_modal"}
+                onIonModalDidDismiss={() => setIsValidateOtpModalOpen(false)}>
+                <div className={"otp_modal_container"}>
+                    <div className={"otp_verify_modal_header"}>
+                        <div className={"otp_verify_modal_main_heading sub_heading"}>
+                            OTP VERIFICATION
+                        </div>
+                        <div className={"otp_verify_modal_sub_heading main_text"}>
+                            {`WE SENT OTP TO +${selectedCountry?.mobileCode}${phone}`}
+                        </div>
+                    </div>
+                    <div className={"otp_container_inner"}>
+                        <OTPInput
+                            value={otp}
+                            onChange={setOtp}
+                            placeholder={'0000'}
+                            containerStyle={"otp_container_inputs"}
+                            numInputs={4}
+                            renderSeparator={<span>-</span>}
+                            renderInput={(props) => <input {...props} />}
+                        />
+                        <button onClick={()=>callFunctionToValidateOtpAndLoginUser(otp)} className={"theme_button otp_verification_button"}>
+                            VERIFY
+                        </button>
+                        <div className={"otp_verify_resend_section main_text"}>
+                            {`Didn't Receive Code?`} <a className={"theme_logo_color"}>Resend OTP</a>
+                        </div>
+                    </div>
+                </div>
+            </IonModal>
+            {/*/////////////// OTP VALIDATION SHEET MODAL //////////////*/}
         </IonContent>
+        </IonPage>
     )
 }
