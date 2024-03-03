@@ -15,7 +15,7 @@ import {countries as countriesList} from 'countries-list';
 import {useHistory} from "react-router-dom";
 import OTPInput from "react-otp-input";
 import {useDispatch} from "react-redux";
-import {actionToValidateOtpAndLoginUser} from "../actions/CommonAction";
+import {actionToValidateOtpAndLoginUser} from "../store/reducers/user.slice";
 
 export default function LoginPage(){
     const history = useHistory();

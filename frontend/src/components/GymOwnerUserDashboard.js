@@ -11,8 +11,9 @@ import {
     IonToolbar
 } from "@ionic/react";
 import OwnerMainDashboardMenu from "./OwnerMainDashboardMenu";
-import {useSelector} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
 import {BarChartComponent} from "./BarChartComponent";
+import {actionToOpenCloseAddMemberModalPopup} from "../store/reducers/add.member.modal.slice";
 
 const filterValuesArray = [
     'Today',
@@ -26,6 +27,10 @@ const filterValuesArray = [
 export default function GymOwnerUserDashboard(){
     const {userInfo} = useSelector((state)=>state.userSignIn);
     const [filterValue, setFilterValue] = useState('Today');
+    const dispatch = useDispatch();
+    const callFunctionToOpenCloseAddMemberPopup = ()=>{
+        dispatch(actionToOpenCloseAddMemberModalPopup(true));
+    }
     return (
         <React.Fragment>
             <OwnerMainDashboardMenu/>
@@ -140,7 +145,7 @@ export default function GymOwnerUserDashboard(){
                         </IonRow>
                     </IonGrid>
                     <div className={"bottom_footer_add_button_section"}>
-                        <div className={"bottom_footer_add_button_section_inner"}>
+                        <div onClick={()=>callFunctionToOpenCloseAddMemberPopup()} className={"bottom_footer_add_button_section_inner"}>
                             <svg xmlns="http://www.w3.org/2000/svg" width="45px" viewBox="0 0 512 512" version="1.1"><g id="Page-1" stroke="none" strokeWidth="1" fill="none" fillRule="evenodd"><g id="drop" fill="#ffffff" transform="translate(42.666667, 42.666667)"><path d="M213.333333,3.55271368e-14 C269.912851,3.55271368e-14 324.175019,22.4761259 364.18278,62.4838867 C404.190541,102.491647 426.666667,156.753816 426.666667,213.333333 C426.666667,331.15408 331.15408,426.666667 213.333333,426.666667 C95.5125867,426.666667 3.55271368e-14,331.15408 3.55271368e-14,213.333333 C3.55271368e-14,95.5125867 95.5125867,3.55271368e-14 213.333333,3.55271368e-14 Z M213.333333,42.6666667 C119.076736,42.6666667 42.6666667,119.076736 42.6666667,213.333333 C42.6666667,307.589931 119.076736,384 213.333333,384 C258.596948,384 302.006682,366.019099 334.012891,334.012891 C366.019099,302.006682 384,258.596948 384,213.333333 C384,119.076736 307.589931,42.6666667 213.333333,42.6666667 Z M234.666667,106.666667 L234.666,192 L320,192 L320,234.666667 L234.666,234.666 L234.666667,320 L192,320 L192,234.666 L106.666667,234.666667 L106.666667,192 L192,192 L192,106.666667 L234.666667,106.666667 Z" id="add-workorder"></path></g></g></svg>
                         </div>
                     </div>

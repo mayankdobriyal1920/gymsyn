@@ -18,7 +18,6 @@ const userSlice = createSlice({
     },
     userSignInSuccess: (state, action) => {
       // Update userInfo when user signs in
-      console.log('action.payload',action.payload)
       state.userInfo = action.payload;
     },
     userSignInFail: (state) => {
@@ -32,5 +31,28 @@ const userSlice = createSlice({
   },
 });
 
+
 export const {userSignInRequest,userSignInSuccess,userSignInFail,userSignOut} = userSlice.actions;
 export default userSlice.reducer;
+
+
+export const actionToValidateOtpAndLoginUser = () => async (dispatch) => {
+  let data = {
+    id:'324-ewr-2345-223r-245',
+    name:'Mayank Dobriyal',
+    is_owner:1,
+    gym_data:null
+  }
+  localStorage.setItem('userInfo',JSON.stringify(data));
+  dispatch(userSignInSuccess({...data}));
+}
+export const actionToAddNewUserGymDetailData = () => async (dispatch) => {
+  let data = {
+    id:'324-ewr-2345-223r-245',
+    name:'Mayank Dobriyal',
+    is_owner:1,
+    gym_data:{id:"dfdfregt-123213-egrg-4535",name:"Power gym",address:"New Delhi India"}
+  }
+  localStorage.setItem('userInfo',JSON.stringify(data));
+  dispatch(userSignInSuccess({...data}));
+}

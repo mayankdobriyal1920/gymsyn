@@ -4,6 +4,7 @@ import {useSelector} from "react-redux";
 import AddNewGymComponent from "./AddNewGymComponent";
 import {IonPage} from "@ionic/react";
 import GymOwnerUserDashboard from "./GymOwnerUserDashboard";
+import AddEditMemberModalComponent from "./AddEditMemberModalComponent";
 
 // let loadOnce = false;
 export default function MainAppEntryComponent(){
@@ -25,6 +26,7 @@ export default function MainAppEntryComponent(){
                     </Switch>
                :''
             }
+            <AddEditMemberModalComponent/>
         </React.Fragment>
     )
 }

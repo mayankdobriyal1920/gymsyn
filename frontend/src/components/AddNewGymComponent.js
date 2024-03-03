@@ -2,7 +2,7 @@ import React, {useEffect, useState} from 'react';
 import {useDispatch, useSelector} from "react-redux";
 import {IonCol, IonContent, IonPage, IonRow} from "@ionic/react";
 import {countries as countriesList} from 'countries-list';
-import {actionToAddNewUserGymDetailData} from "../actions/CommonAction";
+import {actionToAddNewUserGymDetailData} from "../store/reducers/user.slice";
 export default function AddNewGymComponent(){
     const {userInfo} = useSelector((state)=>state.userSignIn);
     const [countries, setCountries] = useState([]);

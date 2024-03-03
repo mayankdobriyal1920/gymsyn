@@ -76,6 +76,7 @@ ion-content{
     width: 100%;
     padding-left: 10px;
 }
+
 .main_form_container_section .form_input_section {
     border-radius: 2px;
     padding-left: 10px;
@@ -128,8 +129,7 @@ ion-content{
     background-color: var(--theme-primary-button-color);
 }
 .theme_bg{
-    --background: unset!important;
-    background: var(--theme-background-color)!important;
+    --background: var(--theme-background-color)!important;
 }
 .main_form_container_section p {
     color: var(--theme-text-color);
@@ -154,13 +154,11 @@ ion-content{
     position: static;
     margin-top: 24px;
 }
-.theme_modal_color{
+.theme_modal_bg_color{
     --background: var(--theme-modal-color)!important;
-    background: var(--theme-modal-color)!important;
 }
 .theme_secondary_color{
     --background: var(--theme-background-secondry-color)!important;
-    background: var(--theme-background-secondry-color)!important;
 }
 .swiper-horizontal.welcome_page_swiper_slider > .swiper-pagination-bullets .swiper-pagination-bullet, .swiper-pagination-horizontal.swiper-pagination-bullets .swiper-pagination-bullet-active {
     background: var(--theme-logo-color) !important;

@@ -1,9 +1,9 @@
 import React from 'react';
 import {Swiper, SwiperSlide} from "swiper/react";
 import {Pagination} from "swiper/modules";
-import welcomeScreen1 from "../theme/images/welcome-screen-1.gif";
-import welcomeScreen2 from "../theme/images/welcome-screen-2.png";
-import welcomeScreen3 from "../theme/images/welcome-screen-3.png";
+import welcomeScreen1 from "../theme/images/welcome-screen-1.jpg";
+import welcomeScreen2 from "../theme/images/welcome-screen-2.jpg";
+import welcomeScreen3 from "../theme/images/welcome-screen-3.jpg";
 import welcomeScreen5 from "../theme/images/welcome-screen-5.jpg";
 import welcomeScreen6 from "../theme/images/welcome-screen-6.jpg";
 
