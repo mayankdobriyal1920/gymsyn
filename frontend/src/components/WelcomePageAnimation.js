@@ -1,6 +1,4 @@
-// WelcomePageAnimation.jsx
-import React, { useRef, useEffect } from 'react';
-import * as THREE from 'three';
+import React from 'react';
 import {Swiper, SwiperSlide} from "swiper/react";
 import {Pagination} from "swiper/modules";
 import welcomeScreen1 from "../theme/images/welcome-screen-1.gif";

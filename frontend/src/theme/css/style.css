@@ -154,7 +154,14 @@ ion-content{
     position: static;
     margin-top: 24px;
 }
-
+.theme_modal_color{
+    --background: var(--theme-modal-color)!important;
+    background: var(--theme-modal-color)!important;
+}
+.theme_secondary_color{
+    --background: var(--theme-background-secondry-color)!important;
+    background: var(--theme-background-secondry-color)!important;
+}
 .swiper-horizontal.welcome_page_swiper_slider > .swiper-pagination-bullets .swiper-pagination-bullet, .swiper-pagination-horizontal.swiper-pagination-bullets .swiper-pagination-bullet-active {
     background: var(--theme-logo-color) !important;
     border: 0;
@@ -259,4 +266,88 @@ ion-content.top_padding{
 }
 .main_form_container_section.add_gym {
     padding-top: 20px;
+}
+.gym_owner_main_dashboard_header ion-toolbar ion-title{
+    padding-left: 0px;
+    padding-top: 4px;
+}
+.gym_owner_main_dashboard_header ion-toolbar ion-title.ios{
+    padding-left: 60px;
+    padding-top: 6px;
+}
+.gym_owner_main_dashboard_header ion-toolbar ion-menu-button{
+   color:#ffffff;
+}
+.gym_owner_dashboard_main_menu ion-toolbar ion-title.ios{
+    padding-left: 20px;
+    padding-top: 4px;
+}
+.gym_owner_main_dashboard_content .filter_dashboard_menu{
+    width: 106px;
+    height: 36px;
+    border-radius: 10px;
+    padding: 11px;
+    color: var(--theme-text-color);
+    font-size: var(--theme-text-very-small-size);
+    background-color: #2f3034;
+    border: 1px solid rgb(255 255 255 / 8%);
+    backdrop-filter: blur(30px);
+}
+.dashboard_widgets_container {
+    border-radius: 15px;
+    padding: 8px 0px 0px 10px;
+    margin-left: 3px;
+    background-color: #2f3034;
+    border: 1px solid rgb(255 255 255 / 8%);
+    backdrop-filter: blur(30px);
+    color: var(--theme-text-color);
+    opacity: 0.9;
+}
+.dashboard_widgets_container.margin-left-column {
+    margin-left: 3px;
+}
+.dashboard_widgets_container.margin-right-column {
+    margin-right: 3px;
+}
+
+.dashboard_widgets_container .text_detail {
+    padding-left: 8px;
+    line-height: 28px;
+    justify-content: left;
+    display: flex;
+}
+.sub_heading_logo_color{
+    font-size: var(--theme-text-sub-heading-size);
+    color: var(--theme-logo-color);
+    font-weight: bold;
+}
+
+.dashboard_widgets_container_chart_section {
+    margin-top: 13px;
+}
+.bottom_footer_add_button_section {
+    position: absolute;
+    bottom: 32px;
+    width: 100%;
+    display: flex;
+}
+.bottom_footer_add_button_section {
+    position: fixed;
+    bottom: 32px;
+    width: 100%;
+    display: flex;
+    left: 0;
+}
+
+.bottom_footer_add_button_section_inner {
+    margin: auto;
+    padding: 6px 12px;
+    background: #4b4b4b54;
+    border-radius: 16px;
+    opacity: 0.7;
+}
+.gym_owner_dashboard_main_menu .dashboard_test_with_svg{
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
