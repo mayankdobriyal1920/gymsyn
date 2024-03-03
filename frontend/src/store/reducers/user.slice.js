@@ -46,6 +46,10 @@ export const actionToValidateOtpAndLoginUser = () => async (dispatch) => {
   localStorage.setItem('userInfo',JSON.stringify(data));
   dispatch(userSignInSuccess({...data}));
 }
+export const actionToLogoutUser = () => async (dispatch) => {
+  localStorage.removeItem('userInfo');
+  dispatch(userSignOut());
+}
 export const actionToAddNewUserGymDetailData = () => async (dispatch) => {
   let data = {
     id:'324-ewr-2345-223r-245',

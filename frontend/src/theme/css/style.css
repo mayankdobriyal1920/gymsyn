@@ -1,9 +1,8 @@
-@font-face {
-    font-family: 'Esqadero FF CY 4F-Regular';
-    font-style: normal;
-    font-weight: 400;
-    src: url('../fonts/esqadero-ff-cy-4f-regular.ttf') format('truetype');
-}
+/*@font-face {*/
+/*    font-family: 'Esqadero FF CY 4F-Regular';*/
+/*    font-style: normal;*/
+/*    src: url('../fonts/esqadero-ff-cy-4f-regular.ttf') format('truetype');*/
+/*}*/
 textarea:focus,input:focus,select:focus,button:focus{
     outline: none!important;
 }
@@ -11,9 +10,9 @@ textarea{
     resize: none;
 }
 
-html,body{
-    font-family: "Esqadero FF CY 4F-Regular", sans-serif !important;
-}
+/*html,body{*/
+/*    font-family: "Esqadero FF CY 4F-Regular", sans-serif !important;*/
+/*}*/
 .display_flex{
     --display: flex;
     display: flex;
@@ -309,10 +308,11 @@ ion-content.top_padding{
 }
 
 .dashboard_widgets_container .text_detail {
-    padding-left: 8px;
     line-height: 28px;
     justify-content: left;
+    align-items: center;
     display: flex;
+    padding-left: 5px;
 }
 .sub_heading_logo_color{
     font-size: var(--theme-text-sub-heading-size);
@@ -323,15 +323,10 @@ ion-content.top_padding{
 .dashboard_widgets_container_chart_section {
     margin-top: 13px;
 }
-.bottom_footer_add_button_section {
-    position: absolute;
-    bottom: 32px;
-    width: 100%;
-    display: flex;
-}
+
 .bottom_footer_add_button_section {
     position: fixed;
-    bottom: 32px;
+    bottom: 20px;
     width: 100%;
     display: flex;
     left: 0;
@@ -339,7 +334,7 @@ ion-content.top_padding{
 
 .bottom_footer_add_button_section_inner {
     margin: auto;
-    padding: 6px 12px;
+    padding: 5px 10px;
     background: #4b4b4b54;
     border-radius: 16px;
     opacity: 0.7;
@@ -348,4 +343,12 @@ ion-content.top_padding{
     display: flex;
     justify-content: center;
     align-items: center;
+}
+.alert-button-confirm{
+    background: var(--theme-logo-color);
+    color: var(--theme-text-color);
+    font-size: var(--theme-text-small-size);
+}
+.alert-button-cancel{
+    font-size: var(--theme-text-small-size);
 }

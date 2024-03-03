@@ -1,6 +1,23 @@
-import React from 'react';
-import {IonCol, IonContent, IonGrid, IonHeader, IonMenu, IonRow, IonTitle, IonToolbar} from '@ionic/react';
+import React, {useState} from 'react';
+import {IonAlert, IonCol, IonContent, IonGrid, IonHeader, IonMenu, IonRow, IonTitle, IonToolbar} from '@ionic/react';
+import {useHistory} from "react-router-dom";
+import {actionToLogoutUser} from "../store/reducers/user.slice";
+import {useDispatch} from "react-redux";
 function OwnerMainDashboardMenu() {
+    const history = useHistory();
+    const dispatch = useDispatch();
+    const [openLogoutConfirm,setOpenLogoutConfirm] = useState(false);
+
+    const goToPage = (page)=>{
+        history.push(page);
+    }
+    const replacePage = (page)=>{
+        history.replace(page);
+    }
+
+    const callFunctionToLogout = ()=>{
+        dispatch(actionToLogoutUser());
+    }
     return (
         <>
             <IonMenu contentId="gym-dashboard-main-page" className={"gym_owner_dashboard_main_menu"}>
@@ -10,7 +27,7 @@ function OwnerMainDashboardMenu() {
                     </IonToolbar>
                 </IonHeader>
                 <IonContent className={"theme_secondary_color ion-padding"}>
-                    <IonGrid>
+                    <IonGrid onClick={()=>replacePage('/dashboard')}>
                         <IonRow className={"dashboard_test_with_svg main_text"}>
                             <IonCol size={2} className={"ion-text-left"}>
                                 <svg xmlns="http://www.w3.org/2000/svg" fill="#ffffff" width="30px" viewBox="0 0 24 24" className="icon glyph"><rect x="2" y="2" width="9" height="11" rx="2"/><rect x="13" y="2" width="9" height="7" rx="2"/><rect x="2" y="15" width="9" height="7" rx="2"/><rect x="13" y="11" width="9" height="11" rx="2"/></svg>
@@ -20,7 +37,7 @@ function OwnerMainDashboardMenu() {
                             </IonCol>
                         </IonRow>
                     </IonGrid>
-                    <IonGrid>
+                    <IonGrid onClick={()=>goToPage('/member')}>
                         <IonRow className={"dashboard_test_with_svg main_text"}>
                             <IonCol size={2} className={"ion-text-left"}>
                                 <svg xmlns="http://www.w3.org/2000/svg" width="30px" viewBox="0 0 24 24" fill="none"><circle cx="9.00098" cy="6" r="4" fill="#ffffff"/><ellipse cx="9.00098" cy="17.001" rx="7" ry="4" fill="#ffffff"/><path d="M20.9996 17.0005C20.9996 18.6573 18.9641 20.0004 16.4788 20.0004C17.211 19.2001 17.7145 18.1955 17.7145 17.0018C17.7145 15.8068 17.2098 14.8013 16.4762 14.0005C18.9615 14.0005 20.9996 15.3436 20.9996 17.0005Z" fill="#ffffff"/><path d="M17.9996 6.00073C17.9996 7.65759 16.6565 9.00073 14.9996 9.00073C14.6383 9.00073 14.292 8.93687 13.9712 8.81981C14.4443 7.98772 14.7145 7.02522 14.7145 5.99962C14.7145 4.97477 14.4447 4.01294 13.9722 3.18127C14.2927 3.06446 14.6387 3.00073 14.9996 3.00073C16.6565 3.00073 17.9996 4.34388 17.9996 6.00073Z" fill="#ffffff"/></svg>
@@ -110,7 +127,7 @@ function OwnerMainDashboardMenu() {
                             </IonCol>
                         </IonRow>
                     </IonGrid>
-                    <IonGrid>
+                    <IonGrid onClick={()=>setOpenLogoutConfirm(true)}>
                         <IonRow className={"dashboard_test_with_svg main_text theme_logo_color"}>
                             <IonCol size={2} className={"ion-text-left"}>
                                 <svg xmlns="http://www.w3.org/2000/svg" width="30px" viewBox="0 0 24 24" fill="none">
@@ -125,6 +142,27 @@ function OwnerMainDashboardMenu() {
                     </IonGrid>
                 </IonContent>
             </IonMenu>
+            <IonAlert
+              isOpen={openLogoutConfirm}
+              header={"Confirm Logout"}
+              subHeader={"Are you sure want to logout?"}
+              buttons={[
+                  {
+                      text: 'No',
+                      cssClass: 'alert-button-cancel',
+                      handler: () => {
+                          setOpenLogoutConfirm(false)
+                      },
+                  },
+                  {
+                      text: 'Yes',
+                      cssClass: 'alert-button-confirm',
+                      handler: () => callFunctionToLogout(),
+                  },
+              ]}
+              onDidDismiss={()=>setOpenLogoutConfirm(false)}
+            >
+            </IonAlert>
         </>
     );
 }

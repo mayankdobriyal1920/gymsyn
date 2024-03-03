@@ -11,8 +11,8 @@ import {IonRouterOutlet} from "@ionic/react";
 export default function PublicRoutes(){
     useEffect(()=>{
         if(Capacitor.isNativePlatform()){
-            NavigationBar.setColor({ color: '#000000' , darkButtons:false});
-            StatusBar.setBackgroundColor({ color: '#000000' });
+            NavigationBar.setColor({ color: '#111214' , darkButtons:false});
+            StatusBar.setBackgroundColor({ color: '#111214' });
             StatusBar.setStyle({ style:Style.Dark });
         }
     },[])

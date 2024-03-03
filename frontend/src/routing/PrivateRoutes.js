@@ -9,14 +9,15 @@ import {StatusBar, Style} from "@capacitor/status-bar";
 import MainAppEntryComponent from "../components/MainAppEntryComponent";
 import {IonReactRouter} from "@ionic/react-router";
 import {IonRouterOutlet} from "@ionic/react";
+import MemberPage from "../pages/MemberPage";
 
 // let loadOnce = false;
 export default function PrivateRoutes(){
 
     useEffect(()=>{
         if(Capacitor.isNativePlatform()){
-            NavigationBar.setColor({ color: '#000000' , darkButtons:false});
-            StatusBar.setBackgroundColor({ color: '#000000' });
+            NavigationBar.setColor({ color: '#111214' , darkButtons:false});
+            StatusBar.setBackgroundColor({ color: '#111214' });
             StatusBar.setStyle({ style:Style.Dark });
         }
     },[])
@@ -32,6 +33,7 @@ export default function PrivateRoutes(){
         <IonReactRouter>
             <IonRouterOutlet>
                 <Switch>
+                    <Route path={"/member"} component={MemberPage}/>
                     <Route path={"/dashboard"} component={MainAppEntryComponent}/>
                     <Redirect from="/" to="/dashboard" />
                     <Route render={()=><Redirect to={"/dashboard"}/>}/>
