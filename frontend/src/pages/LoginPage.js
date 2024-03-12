@@ -75,7 +75,7 @@ export default function LoginPage(){
                             <img src={logoWithoutText} className={"logo"} alt={"logo"}/>
                         </div>
                         <div className={"welcome_slogan_container"}>
-                            Welcome to <br></br>GymSyn
+                            Welcome to <br></br>GymSync
                             <p>Login to your account</p>
                         </div>
                     </div>

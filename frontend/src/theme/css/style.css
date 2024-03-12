@@ -352,3 +352,130 @@ ion-content.top_padding{
 .alert-button-cancel{
     font-size: var(--theme-text-small-size);
 }
+.sub_small_button {
+    padding: 6px 17px;
+    border-radius: 8px;
+    font-size: var(--theme-text-main-size);
+    color: var(--theme-text-color);
+    background-color: #2f3034;
+    border: 1px solid rgb(255 255 255 / 8%);
+    -webkit-backdrop-filter: blur(30px);
+    backdrop-filter: blur(30px);
+}
+.user_list_row.dashboard_widgets_container {
+    display: flex;
+    align-items: center;
+    padding: 8px;
+    margin-bottom: 12px;
+}
+.user_list_row.dashboard_widgets_container .member_detail_text {
+    padding-left: 10px;
+}
+.user_list_row.dashboard_widgets_container .further_detail_arrow {
+    margin-left: auto;
+}
+.heading_with_Action_button{
+    display: flex;
+    align-items: center;
+}
+.heading_with_Action_button svg{
+    margin-left: 5px;
+}
+
+
+
+.floating_input_section.input-group {
+    position: relative;
+    margin: 13px 0 20px;
+}
+
+.floating_input_section .form_input_section_floating {
+    font-size: 18px;
+    padding: 10px 10px 10px 5px;
+    display: block;
+    width: 100%;
+    color: #ffffff;
+    background: none;
+    border: none;
+    border-bottom: 1px solid #757575;
+}
+
+.floating_input_section label {
+    color: #ffffff;
+    font-size: 18px;
+    font-weight: normal;
+    position: absolute;
+    pointer-events: none;
+    left: 5px;
+    top: 10px;
+    transition: 0.2s ease all;
+    -moz-transition: 0.2s ease all;
+    -webkit-transition: 0.2s ease all;
+}
+
+.floating_input_section .form_input_section_floating:focus ~ label{
+    top: -20px;
+    color:#ffffff;
+}
+
+.floating_input_section .bar {
+    position: relative;
+    display:block;
+    width: 100%;
+}
+
+.floating_input_section .bar:before,
+.floating_input_section .bar:after {
+    content: '';
+    height: 2px;
+    width: 0;
+    bottom: 1px;
+    position: absolute;
+    background: #ffffff;
+    transition: 0.2s ease all;
+    -moz-transition: 0.2s ease all;
+    -webkit-transition: 0.2s ease all;
+}
+
+.floating_input_section .bar:before {
+    left: 50%;
+}
+
+.floating_input_section .bar:after {
+    right: 50%;
+}
+
+.floating_input_section .form_input_section_floating:focus ~ .bar:before,
+.floating_input_section .form_input_section_floating:focus ~ .bar:after {
+    width: 50%;
+}
+
+.floating_input_section select.form_input_section_floating:not([value=""]) ~ label{
+    top: -20px;
+    color:#ffffff;
+}
+
+
+.floating_input_section select.form_input_section_floating:not([value=""]) ~ .bar:before {
+    left: 50%;
+}
+
+.floating_input_section select.form_input_section_floating:not([value=""]) ~ .bar:after {
+    right: 50%;
+}
+
+.floating_input_section select.form_input_section_floating:not([value=""])  ~ .bar:before,
+.floating_input_section select.form_input_section_floating:not([value=""])  ~ .bar:after {
+    width: 50%;
+}
+
+
+.member_detail_main_container .tab_buttons.active:after {
+    content: "";
+    position: absolute;
+    width: 58%;
+    height: 2px;
+    bottom: 0px;
+    background: var(--theme-logo-color);
+    left: 18px;
+}

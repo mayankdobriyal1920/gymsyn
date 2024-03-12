@@ -17,7 +17,7 @@ const WelcomePageAnimation = () => {
                     </div>
                     <div className={"welcome_slogan_container"}>
                         Sync your fitness <br></br>
-                        Journey with GymSyn
+                        Journey with GymSync
                     </div>
                 </div>
             </SwiperSlide>
@@ -28,7 +28,7 @@ const WelcomePageAnimation = () => {
                     </div>
                     <div className={"welcome_slogan_container"}>
                         Your Ultimate Gym <br></br>
-                        Companion GymSyn!
+                        Companion GymSync!
                     </div>
                 </div>
             </SwiperSlide>
@@ -50,7 +50,7 @@ const WelcomePageAnimation = () => {
                     </div>
                     <div className={"welcome_slogan_container"}>
                         Elevate Your Fitness <br></br>
-                        Experience with GymSyn!
+                        Experience with GymSync!
                     </div>
                 </div>
             </SwiperSlide>

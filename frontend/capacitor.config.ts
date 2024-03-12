@@ -1,7 +1,7 @@
 import { CapacitorConfig } from '@capacitor/cli';
 
 const config: CapacitorConfig = {
-  appId: 'com.gymsyn.ai',
+  appId: 'com.gymsync.ai',
   appName: 'Gymsyn',
   webDir: 'build',
   server: {

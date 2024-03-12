@@ -43,7 +43,7 @@ export default function SignupPage(){
                             <img src={logoWithoutText} className={"logo"} alt={"logo"}/>
                         </div>
                         <div className={"welcome_slogan_container"}>
-                            Welcome to <br></br>GymSyn
+                            Welcome to <br></br>GymSync
                             <p>Create your account</p>
                         </div>
                     </div>

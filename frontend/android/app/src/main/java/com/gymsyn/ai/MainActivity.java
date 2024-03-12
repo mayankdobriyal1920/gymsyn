@@ -1,4 +1,4 @@
-package com.gymsyn.ai;
+package com.gymsync.ai;
 
 import com.getcapacitor.BridgeActivity;
 

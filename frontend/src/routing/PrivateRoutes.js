@@ -6,10 +6,9 @@ import {Redirect, Route, Switch} from "react-router-dom";
 import {Capacitor} from "@capacitor/core";
 import {NavigationBar} from "@mauricewegner/capacitor-navigation-bar";
 import {StatusBar, Style} from "@capacitor/status-bar";
-import MainAppEntryComponent from "../components/MainAppEntryComponent";
+import MainAppEntryComponent from "./MainAppEntryComponent";
 import {IonReactRouter} from "@ionic/react-router";
 import {IonRouterOutlet} from "@ionic/react";
-import MemberPage from "../pages/MemberPage";
 
 // let loadOnce = false;
 export default function PrivateRoutes(){
@@ -33,7 +32,6 @@ export default function PrivateRoutes(){
         <IonReactRouter>
             <IonRouterOutlet>
                 <Switch>
-                    <Route path={"/member"} component={MemberPage}/>
                     <Route path={"/dashboard"} component={MainAppEntryComponent}/>
                     <Redirect from="/" to="/dashboard" />
                     <Route render={()=><Redirect to={"/dashboard"}/>}/>

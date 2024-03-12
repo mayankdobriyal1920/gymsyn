@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {
     IonButton,
     IonButtons, IonCol,
@@ -14,6 +14,9 @@ import OwnerMainDashboardMenu from "./OwnerMainDashboardMenu";
 import {useDispatch, useSelector} from "react-redux";
 import {BarChartComponent} from "./BarChartComponent";
 import {actionToOpenCloseAddMemberModalPopup} from "../store/reducers/add.member.modal.slice";
+import {useHistory} from "react-router-dom";
+import {App} from "@capacitor/app";
+import {Capacitor} from "@capacitor/core";
 
 const filterValuesArray = [
     'Today',
@@ -24,6 +27,8 @@ const filterValuesArray = [
     'Last Month',
     'Custom',
 ];
+
+let backButtonListener = null;
 export default function GymOwnerUserDashboard(){
     const {userInfo} = useSelector((state)=>state.userSignIn);
     const [filterValue, setFilterValue] = useState('Today');
@@ -31,6 +36,34 @@ export default function GymOwnerUserDashboard(){
     const callFunctionToOpenCloseAddMemberPopup = ()=>{
         dispatch(actionToOpenCloseAddMemberModalPopup(true));
     }
+    const history = useHistory();
+
+    const goToPage = (page)=>{
+        history.push(page);
+    }
+
+    useEffect(() => {
+        const handleBackButton = ()=>{
+            history.goBack();
+        }
+
+        if(Capacitor.isNativePlatform()) {
+            // Add listener for the backButton event
+            backButtonListener = App.addListener('backButton', () => {
+                handleBackButton();
+            });
+        }
+
+        // Cleanup listener on component unmount
+        return () => {
+            if(Capacitor.isNativePlatform()) {
+                if (backButtonListener)
+                    backButtonListener.remove();
+            }
+        };
+    }, []);
+
+
     return (
         <React.Fragment>
             <OwnerMainDashboardMenu/>
@@ -82,7 +115,7 @@ export default function GymOwnerUserDashboard(){
                     </IonGrid>
                     <IonGrid>
                         <IonRow>
-                            <IonCol className="dashboard_widgets_container margin-right-column">
+                            <IonCol onClick={()=>goToPage('/dashboard/all-members')} className="dashboard_widgets_container margin-right-column">
                                 <IonCol>
                                     <svg xmlns="http://www.w3.org/2000/svg" width="30px" viewBox="0 0 24 24" fill="none"><circle cx="9.00098" cy="6" r="4" fill="#ffffff"/><ellipse cx="9.00098" cy="17.001" rx="7" ry="4" fill="#ffffff"/><path d="M20.9996 17.0005C20.9996 18.6573 18.9641 20.0004 16.4788 20.0004C17.211 19.2001 17.7145 18.1955 17.7145 17.0018C17.7145 15.8068 17.2098 14.8013 16.4762 14.0005C18.9615 14.0005 20.9996 15.3436 20.9996 17.0005Z" fill="#ffffff"/><path d="M17.9996 6.00073C17.9996 7.65759 16.6565 9.00073 14.9996 9.00073C14.6383 9.00073 14.292 8.93687 13.9712 8.81981C14.4443 7.98772 14.7145 7.02522 14.7145 5.99962C14.7145 4.97477 14.4447 4.01294 13.9722 3.18127C14.2927 3.06446 14.6387 3.00073 14.9996 3.00073C16.6565 3.00073 17.9996 4.34388 17.9996 6.00073Z" fill="#ffffff"/></svg>
                                     <div className={"sub_heading text_detail"}>Members</div>
